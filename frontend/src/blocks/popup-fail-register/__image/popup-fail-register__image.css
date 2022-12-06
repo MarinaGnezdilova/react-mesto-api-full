@@ -1,0 +1,6 @@
+.popup-fail-register__image {
+    background-image: url('../../../images/icon-fail.svg');
+    width: 120px;
+    height: 120px;
+    margin-top: 60px;
+}

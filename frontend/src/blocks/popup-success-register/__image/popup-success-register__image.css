@@ -1,0 +1,6 @@
+ .popup-success-register__image {
+    width: 120px;
+    height: 120px;
+    background-image: url("../../../images/icon-success.svg");
+    margin-top: 60px;
+ }

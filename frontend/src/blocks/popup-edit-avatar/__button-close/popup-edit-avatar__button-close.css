@@ -1,0 +1,12 @@
+.popup-edit-avatar__button-close {
+  position: absolute;
+  bottom: 280px;
+  left: 440px;
+}
+
+@media screen and (max-width: 650px) {
+  .popup-edit-avatar__button-close {
+    left: 290px;
+    bottom: 270px;
+  }
+}

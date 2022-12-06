@@ -1,0 +1,9 @@
+.profile__block-name {
+  display: flex;
+}
+
+@media screen and (max-width: 650px) {
+  .profile__block-name {
+    margin-left: 30px;
+  }
+}

@@ -1,0 +1,13 @@
+.new-place__button-close {
+  position: absolute;
+  bottom: 340px;
+  left: 440px;
+}
+
+@media screen and (max-width: 650px) {
+  .new-place__button-close {
+    position: absolute;
+    bottom: 340px;
+    left: 260px;
+  }
+}

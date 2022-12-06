@@ -1,0 +1,23 @@
+.profile__form-name {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.2;
+  border: none;
+  width: 294px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__form-name {
+    font-size: 27px;
+    width: 189px;
+    margin-bottom: 8px;
+  }
+}

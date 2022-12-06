@@ -1,0 +1,7 @@
+.popup-picture {
+  flex-direction: column;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, 0.9);
+}

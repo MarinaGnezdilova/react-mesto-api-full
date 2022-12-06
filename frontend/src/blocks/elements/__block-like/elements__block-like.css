@@ -1,0 +1,5 @@
+.elements__block-like {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

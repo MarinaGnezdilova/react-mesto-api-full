@@ -1,0 +1,12 @@
+.popup__input-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 650px) {
+  .popup__input-block {
+    margin-bottom: 30px;
+  }
+}

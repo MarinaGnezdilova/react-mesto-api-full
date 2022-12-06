@@ -1,0 +1,13 @@
+.button-like {
+  min-width: 22px;
+  min-height: 19px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../images/icon-heart-no-fill.svg);
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+}
+
+.button-like:hover {
+  opacity: 0.5;
+}

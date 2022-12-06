@@ -1,0 +1,13 @@
+.popup-profile__button-close {
+  position: absolute;
+  bottom: 340px;
+  left: 440px;
+}
+
+@media screen and (max-width: 650px) {
+  .popup-profile__button-close {
+    position: absolute;
+    bottom: 340px;
+    left: 260px;
+  }
+}

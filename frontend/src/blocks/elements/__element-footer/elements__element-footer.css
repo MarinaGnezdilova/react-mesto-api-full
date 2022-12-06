@@ -1,0 +1,10 @@
+.elements__element-footer {
+  box-sizing: border-box;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 0 0 10px 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+  align-items: center;
+}

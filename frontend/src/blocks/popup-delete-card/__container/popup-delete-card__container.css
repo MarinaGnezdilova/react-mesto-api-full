@@ -1,0 +1,20 @@
+.popup-delete-card__container {
+  background-color: #ffffff;
+  width: 430px;
+  min-height: 181px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+@media screen and (max-width: 650px) {
+  .popup-delete-card__container {
+    width: 282px;
+    min-height: 181px;
+  }
+}
