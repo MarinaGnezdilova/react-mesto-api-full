@@ -8,6 +8,7 @@ function Card(props) {
   const cardLikeButtonClassName = `button-like ${
     isLiked ? "button-like_status_active" : " "
   }`;
+  
   function handleClick() {
     props.onCardClick(props.card);
   }

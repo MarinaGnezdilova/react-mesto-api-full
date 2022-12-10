@@ -16,7 +16,7 @@ function AddPlacePopup(props) {
     e.preventDefault();
     props.onAddCard({
       name: nameCard,
-      link,
+      link: link,
     });
   }
 

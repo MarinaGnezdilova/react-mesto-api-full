@@ -7,11 +7,12 @@ import Header from "./Header";
 import * as auth from "../utils/Auth.js";
 import Footer from "./Footer";
 function Main(props) {
+ 
   const [currentEmail, setCurrentEmail] = React.useState();
   const currentUser = React.useContext(CurrentUserContext);
   const currentCards = React.useContext(CardsContext);
   const jwt = localStorage.getItem("jwt");
-
+  console.log(currentCards.cards);
   React.useEffect(() => {
     auth
       .getContent(jwt)
@@ -37,20 +38,20 @@ function Main(props) {
           />
         </div>
         <img
-          src={currentUser.avatar}
+          src={currentUser.data.avatar}
           alt="Аватар профиля"
           className="profile__avatar"
         />
         <div className="profile__forms">
           <div className="profile__block-name">
-            <p className="profile__form-name">{currentUser.name}</p>
+            <p className="profile__form-name">{currentUser.data.name}</p>
             <button
               className="profile__edit-button"
               type="button"
               onClick={props.onEditProfile}
             ></button>
           </div>
-          <p className="profile__form-profession">{currentUser.about}</p>
+          <p className="profile__form-profession">{currentUser.data.about}</p>
         </div>
         <button
           className="profile__add-button"
@@ -59,12 +60,12 @@ function Main(props) {
         ></button>
       </section>
       <section className="elements">
-        {currentCards.map((card) => (
+        {currentCards.cards.map((card) => (
           <Card
             key={card._id}
             onCardClick={props.handleCardClick}
             card={card}
-            id={currentUser._id}
+            id={currentUser.data._id}
             onCardLike={props.handleCardLike}
             onCardDelete={props.handleCardDelete}
           />

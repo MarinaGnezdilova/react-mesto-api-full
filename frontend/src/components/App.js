@@ -73,6 +73,7 @@ function App() {
       .then((res) => {
         setCards(res);
       })
+      
       .catch((e) => {
         alert("Не удалось загрузить карточки");
       });
@@ -122,14 +123,18 @@ function App() {
   }
 
   function handleAddCard(formData) {
+    console.log(formData);
     api
       .addCard(formData)
-      .then((newCard) => {
-        setCards([newCard, ...currentCards]);
+      .then((formData) => {
+        console.log(formData);
+        console.log(currentCards);
+        setCards([formData.card, ...currentCards.cards]);
         closeAllPopups();
       })
       .catch((e) => {
-        alert("Не удалось добавить карточку");
+        console.log(e);
+        alert("Не удалось добавить карточку1");
       });
   }
 
