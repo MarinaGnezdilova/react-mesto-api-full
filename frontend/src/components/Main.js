@@ -12,7 +12,6 @@ function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const currentCards = React.useContext(CardsContext);
   const jwt = localStorage.getItem("jwt");
-  console.log(currentCards.cards);
   React.useEffect(() => {
     auth
       .getContent(jwt)
@@ -38,20 +37,20 @@ function Main(props) {
           />
         </div>
         <img
-          src={currentUser.data.avatar}
+          src={currentUser?.avatar}
           alt="Аватар профиля"
           className="profile__avatar"
         />
         <div className="profile__forms">
           <div className="profile__block-name">
-            <p className="profile__form-name">{currentUser.data.name}</p>
+            <p className="profile__form-name">{currentUser?.name}</p>
             <button
               className="profile__edit-button"
               type="button"
               onClick={props.onEditProfile}
             ></button>
           </div>
-          <p className="profile__form-profession">{currentUser.data.about}</p>
+          <p className="profile__form-profession">{currentUser?.about}</p>
         </div>
         <button
           className="profile__add-button"
@@ -60,12 +59,12 @@ function Main(props) {
         ></button>
       </section>
       <section className="elements">
-        {currentCards.cards.map((card) => (
+        {currentCards && currentCards.map((card) => (
           <Card
             key={card._id}
             onCardClick={props.handleCardClick}
             card={card}
-            id={currentUser.data._id}
+            id={currentUser._id}
             onCardLike={props.handleCardLike}
             onCardDelete={props.handleCardDelete}
           />

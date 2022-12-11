@@ -60,7 +60,7 @@ function App() {
     api
       .getInfoUser()
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
       })
       .catch((e) => {
         alert("Не удалось получить данные пользователя");
@@ -71,7 +71,7 @@ function App() {
     api
       .getCards()
       .then((res) => {
-        setCards(res);
+        setCards(res.data);
       })
       
       .catch((e) => {
@@ -91,7 +91,7 @@ function App() {
     api
       .editProfile(formData)
       .then((formData) => {
-        setCurrentUser(formData);
+        setCurrentUser(formData.data);
         closeAllPopups();
       })
       .catch((e) => {
@@ -129,7 +129,7 @@ function App() {
       .then((formData) => {
         console.log(formData);
         console.log(currentCards);
-        setCards([formData.card, ...currentCards.cards]);
+        setCards([formData.data, ...currentCards]);
         closeAllPopups();
       })
       .catch((e) => {
@@ -139,6 +139,8 @@ function App() {
   }
 
   function handleCardLike(card) {
+    console.log(card);
+    console.log(currentUser._id);
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
