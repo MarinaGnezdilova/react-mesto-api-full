@@ -9,7 +9,7 @@ import Footer from "./Footer";
 function Main(props) {
  
   const [currentEmail, setCurrentEmail] = React.useState();
-  const currentUser = React.useContext(CurrentUserContext);
+  const {currentUser} = React.useContext(CurrentUserContext);
   const currentCards = React.useContext(CardsContext);
   const jwt = localStorage.getItem("jwt");
   React.useEffect(() => {
@@ -22,7 +22,6 @@ function Main(props) {
         alert("Что-то пошло не так!");
       });
   }, []);
-
   return (
     <main>
       <Header link="/signin" linkText="Выйти" email={currentEmail} />

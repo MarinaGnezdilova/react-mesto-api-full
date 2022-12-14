@@ -16,11 +16,11 @@ const cardSchema = new mongoose.Schema({
       message: 'Поле "link" должно быть ссылкой.',
     },
   },
-  owner: {
+  owner: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true,
-  },
+  }],
   likes: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',

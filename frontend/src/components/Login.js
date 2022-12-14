@@ -3,12 +3,13 @@ import { useHistory } from "react-router-dom";
 import * as auth from "../utils/Auth.js";
 import Header from "./Header.js";
 import InfoTooltip from "./InfoTooltip.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
   const [isLoginFailed, setIsLoginFailed] = useState(false);
-
+  const {setLoggedIn} = React.useContext(CurrentUserContext);
   function onLoginFailedPopupClosed() {
     setIsLoginFailed(false);
   }
@@ -20,6 +21,7 @@ function Login(props) {
       .then((data) => {
         const token = data.token;
         localStorage.setItem("jwt", token);
+        setLoggedIn(true);
         history.push("/");
       })
       .catch((e) => {

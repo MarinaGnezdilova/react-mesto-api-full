@@ -44,6 +44,7 @@ class Api {
   }
 
   deleteLike(idCard) {
+
     return fetch(`${this._baseUrl}/cards/${idCard}/likes`, {
       method: "DELETE",
       headers: {
@@ -105,5 +106,5 @@ class Api {
 }
 
 export const api = new Api(
-  "http://localhost:3001"
+  "https://api.gnezdilovamarina.nomoredomains.club"
 );

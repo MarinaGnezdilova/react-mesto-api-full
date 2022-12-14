@@ -1,11 +1,10 @@
 import iconDelete from "../images//delete-icon.svg";
 function Card(props) {
-  const isOwn = props.id === props.card.owner;
+  const isOwn = props.id === props.card.owner[0];
   const cardDeleteButtonClassName = `elements__delete-icon ${
     isOwn ? " " : "elements__delete-icon_hidden"
   }`;
-  console.log(props.card);
-  const isLiked = props.card.likes.some((i) => i._id === props.id);
+  const isLiked = props.card.likes.some((i) => i === props.id);
   const cardLikeButtonClassName = `button-like ${
     isLiked ? "button-like_status_active" : " "
   }`;
@@ -14,7 +13,6 @@ function Card(props) {
     props.onCardClick(props.card);
   }
   function handleLikeClick() {
-     console.log(props.card)
     props.onCardLike(props.card);
   }
 

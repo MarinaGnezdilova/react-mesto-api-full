@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import logo from "../images/logo.svg";
 import { useHistory } from "react-router-dom";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import React from "react";
 function Header(props) {
+  const {setLoggedIn} = React.useContext(CurrentUserContext);
   const history = useHistory();
   function signOut() {
     localStorage.removeItem("jwt");
+    setLoggedIn(false);
     history.push("/login");
   }
   return (

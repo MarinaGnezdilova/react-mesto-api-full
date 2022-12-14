@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3001";
+export const BASE_URL = "https://api.gnezdilovamarina.nomoredomains.club";
 
 function checkResponse(response) {
     if (response.status === 200) {

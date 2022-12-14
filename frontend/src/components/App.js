@@ -57,6 +57,7 @@ function App() {
   };
 
   React.useEffect(() => {
+    if (loggedIn) {
     api
       .getInfoUser()
       .then((res) => {
@@ -65,7 +66,7 @@ function App() {
       .catch((e) => {
         alert("Не удалось получить данные пользователя");
       });
-  }, []);
+  }}, [loggedIn]);
 
   React.useEffect(() => {
     api
@@ -77,7 +78,7 @@ function App() {
       .catch((e) => {
         alert("Не удалось загрузить карточки");
       });
-  }, []);
+  }, [currentUser]);
 
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
@@ -123,30 +124,24 @@ function App() {
   }
 
   function handleAddCard(formData) {
-    console.log(formData);
     api
       .addCard(formData)
       .then((formData) => {
-        console.log(formData);
-        console.log(currentCards);
         setCards([formData.data, ...currentCards]);
         closeAllPopups();
       })
       .catch((e) => {
-        console.log(e);
         alert("Не удалось добавить карточку1");
       });
   }
 
   function handleCardLike(card) {
-    console.log(card);
-    console.log(currentUser._id);
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? newCard.data : c))
         );
       })
       .catch((e) => {
@@ -155,7 +150,7 @@ function App() {
   }
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={{currentUser, setLoggedIn}} >
       <CardsContext.Provider value={currentCards}>
         <div className="root">
           <div className="page">
