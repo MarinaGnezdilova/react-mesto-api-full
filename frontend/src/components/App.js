@@ -69,7 +69,8 @@ function App() {
   }}, [loggedIn]);
 
   React.useEffect(() => {
-    api
+    if (loggedIn) {
+      api
       .getCards()
       .then((res) => {
         setCards(res.data);
@@ -77,7 +78,7 @@ function App() {
       .catch((e) => {
         alert("Не удалось загрузить карточки");
       });
-  }, [currentUser]);
+    }}, [loggedIn]);
 
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
