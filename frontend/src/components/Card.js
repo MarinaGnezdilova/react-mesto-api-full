@@ -1,6 +1,6 @@
 import iconDelete from "../images//delete-icon.svg";
 function Card(props) {
-  const isOwn = props.id === props.card.owner[0];
+  const isOwn = props.id === props.card.owner;
   const cardDeleteButtonClassName = `elements__delete-icon ${
     isOwn ? " " : "elements__delete-icon_hidden"
   }`;

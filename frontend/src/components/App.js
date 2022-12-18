@@ -74,7 +74,6 @@ function App() {
       .then((res) => {
         setCards(res.data);
       })
-      
       .catch((e) => {
         alert("Не удалось загрузить карточки");
       });

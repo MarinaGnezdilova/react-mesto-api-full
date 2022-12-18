@@ -20,7 +20,7 @@ module.exports.getUsers = (req, res, next) => {
 };
 
 module.exports.getUserById = (req, res, next) => {
-  User.findById(req.params.id, { new: true, runValidators: true })
+  User.findById(req.params.id)
     .orFail(() => {
       throw new NotFoundError('Пользователь по указанному _id не найден.');
     })
@@ -38,6 +38,7 @@ module.exports.postUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10, (err, hash) => {
     if (err) {
       next(err);
+      return;
     }
     User.create({
       name: req.body.name,
@@ -113,7 +114,7 @@ module.exports.getUserInfo = (req, res, next) => {
   User.findById(req.user.id)
     .then((user) => {
       if (!user) {
-        next(new NotFoundError('Пользователь по указанному _id не найден.'));
+        throw new NotFoundError('Пользователь по указанному _id не найден.');
       }
       return res.send({ data: user });
     })
