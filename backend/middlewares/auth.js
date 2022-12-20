@@ -2,11 +2,11 @@ const jwt = require('jsonwebtoken');
 const Unauthoraized = require('../errors/unauthoraized');
 require('dotenv').config();
 
-const {secretKey = 'some-secret-key'} = process.env.SECRET_KEY;
+const {secretKey = 'some-secret-key'} = process.env;
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new Unauthoraized('Что-то пошло не так.');
+    throw new Unauthoraized('Ошибка автоизации.');
   }
 
   const token = authorization.replace('Bearer ', '');

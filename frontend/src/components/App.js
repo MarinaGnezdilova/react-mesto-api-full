@@ -6,8 +6,7 @@ import React from "react";
 import {
   Route,
   Switch,
-  useHistory,
-  BrowserRouter as Router,
+  useHistory
 } from "react-router-dom";
 import { api } from "../utils/Api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";

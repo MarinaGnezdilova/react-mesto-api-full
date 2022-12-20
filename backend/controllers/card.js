@@ -28,7 +28,6 @@ module.exports.postCard = (req, res, next) => {
       }
     });
 };
-cs;
 module.exports.deleteCard = (req, res, next) => {
   Card.findById(req.params.cardId)
     .orFail(() => {
