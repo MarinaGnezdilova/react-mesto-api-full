@@ -9,7 +9,7 @@ const Unauthoraized = require('../errors/unauthoraized');
 const Coflict = require('../errors/conflict');
 require('dotenv').config();
 
-const secretKey = process.env.SECRET_KEY;
+const {secretKey = 'some-secret-key'} = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})

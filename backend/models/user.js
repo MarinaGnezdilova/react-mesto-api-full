@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const urlRegExp = /^https?:\/\/[a-z0-9~_\-\.]+\.[a-z]{2,9}([a-z0-9\[\]\#\-\.\_\~\/\?\@\!\$\&\'\(\)\*\+\,\;\:\=]*)?$/i;
 const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+const Unauthoraized = require('../errors/unauthoraized');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -44,13 +45,13 @@ userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        throw new Error('Неправильные почта или пароль');
+        throw new Unauthoraized('Неправильные почта или пароль');
       }
 
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new Error('Неправильные почта или пароль');
+            throw new Unauthoraized('Неправильные почта или пароль');
           }
 
           return user; // теперь user доступен
